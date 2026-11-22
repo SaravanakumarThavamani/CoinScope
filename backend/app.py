@@ -39,7 +39,7 @@ def home():
     }), 200
 
 COINGECKO = "https://api.coingecko.com/api/v3"
-
+CG_KEY = os.getenv("CG_API_KEY")
 # Existing backend code continues...
 
 FORCE_MOCK = os.getenv("USE_MOCK", "0") == "1"
@@ -71,13 +71,13 @@ def cached(key, ttl, loader):
         _cache[key] = (now, value)
     return value
 
-
 def cg_get(path, params=None):
-    r = requests.get(f"{COINGECKO}{path}", params=params, timeout=8,
-                     headers={"Accept": "application/json", "User-Agent": "mini-gecko/1.0"})
+    headers = {"Accept": "application/json", "User-Agent": "mini-gecko/1.0"}
+    if CG_KEY:
+        headers["x-cg-demo-api-key"] = CG_KEY
+    r = requests.get(f"{COINGECKO}{path}", params=params, timeout=8, headers=headers)
     r.raise_for_status()
     return r.json()
-
 
 def normalize(c):
     return {

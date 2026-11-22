@@ -68,8 +68,8 @@ def mock_coins():
         cap = mcap * jitter
         change24 = c24 + rng.uniform(-0.15, 0.15)
         out.append({
-            "id": cid, "symbol": sym, "name": name, "image": None,
-            "market_cap_rank": rank,
+"id": cid, "symbol": sym, "name": name,
+"image": f"https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons@master/128/color/{sym}.png",            "market_cap_rank": rank,
             "current_price": p,
             "market_cap": cap,
             "total_volume": vol * (1 + rng.uniform(-0.03, 0.03)),
