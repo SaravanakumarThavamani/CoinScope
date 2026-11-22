@@ -15,12 +15,33 @@ from pathlib import Path
 
 import requests
 from flask import Flask, jsonify, request
-
 import mock_data
 
 app = Flask(__name__)
 
+# Homepage route
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({
+        "success": True,
+        "app": "CoinScope",
+        "message": "CoinScope Backend API is running",
+        "status": "online",
+        "version": "1.0.0",
+        "endpoints": {
+            "health": "/api/health",
+            "coins": "/api/coins",
+            "coin_details": "/api/coins/<coin_id>",
+            "chart": "/api/coins/<coin_id>/chart",
+            "market_stats": "/api/stats",
+            "watchlist": "/api/watchlist"
+        }
+    }), 200
+
 COINGECKO = "https://api.coingecko.com/api/v3"
+
+# Existing backend code continues...
+
 FORCE_MOCK = os.getenv("USE_MOCK", "0") == "1"
 CACHE_TTL = int(os.getenv("CACHE_TTL", "60"))  # seconds - protects us from API rate limits
 # On a host with a persistent disk, point this at it, e.g. WATCHLIST_FILE=/data/watchlist.json
