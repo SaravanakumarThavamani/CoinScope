@@ -23,7 +23,8 @@ app = Flask(__name__)
 COINGECKO = "https://api.coingecko.com/api/v3"
 FORCE_MOCK = os.getenv("USE_MOCK", "0") == "1"
 CACHE_TTL = int(os.getenv("CACHE_TTL", "60"))  # seconds - protects us from API rate limits
-WATCHLIST_FILE = Path(__file__).with_name("watchlist.json")
+# On a host with a persistent disk, point this at it, e.g. WATCHLIST_FILE=/data/watchlist.json
+WATCHLIST_FILE = Path(os.getenv("WATCHLIST_FILE") or Path(__file__).with_name("watchlist.json"))
 
 _cache = {}
 _lock = threading.Lock()
@@ -295,5 +296,7 @@ def remove_watch(coin_id):
 
 
 if __name__ == "__main__":
+    # Local development only. In production the server is started by gunicorn (see Procfile).
     # host 0.0.0.0 so a real phone on the same Wi-Fi can reach it
-    app.run(host="0.0.0.0", port=int(os.getenv("PORT", "5000")), debug=True)
+    app.run(host="0.0.0.0", port=int(os.getenv("PORT", "5000")),
+            debug=os.getenv("FLASK_DEBUG", "1") == "1")

@@ -11,7 +11,7 @@ class MiniGeckoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'MiniGecko',
+      title: 'CoinScope',
       debugShowCheckedModeBanner: false,
       theme: buildTheme(),
       initialBinding: AppBinding(),

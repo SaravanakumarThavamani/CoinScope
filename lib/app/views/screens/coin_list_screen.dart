@@ -52,7 +52,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
             const Icon(Icons.currency_bitcoin, color: AppColors.accent),
             const SizedBox(width: 8),
             const Text(
-              'MiniGecko',
+              'CoinScope',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(width: 10),
