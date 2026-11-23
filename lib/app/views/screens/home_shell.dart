@@ -15,30 +15,38 @@ class HomeShell extends StatelessWidget {
     final home = Get.find<HomeController>();
     final watch = Get.find<WatchlistController>();
     return Scaffold(
-      body: Obx(() => IndexedStack(
-            index: home.tab.value,
-            children: const [CoinListScreen(), StatsScreen(), WatchlistScreen()],
-          )),
+      body: Obx(
+        () => IndexedStack(
+          index: home.tab.value,
+          children: const [CoinListScreen(), StatsScreen(), WatchlistScreen()],
+        ),
+      ),
       bottomNavigationBar: Obx(() {
         final n = watch.count;
         return NavigationBar(
           selectedIndex: home.tab.value,
           onDestinationSelected: (i) => home.tab.value = i,
           destinations: [
-            const NavigationDestination(icon: Icon(Icons.show_chart), label: 'Markets'),
             const NavigationDestination(
-                icon: Icon(Icons.pie_chart_outline),
-                selectedIcon: Icon(Icons.pie_chart),
-                label: 'Stats'),
+              icon: Icon(Icons.show_chart),
+              label: 'Markets',
+            ),
+            const NavigationDestination(
+              icon: Icon(Icons.pie_chart_outline),
+              selectedIcon: Icon(Icons.pie_chart),
+              label: 'Stats',
+            ),
             NavigationDestination(
               icon: Badge(
-                  isLabelVisible: n > 0,
-                  label: Text('$n'),
-                  child: const Icon(Icons.star_border_rounded)),
+                isLabelVisible: n > 0,
+                label: Text('$n'),
+                child: const Icon(Icons.star_border_rounded),
+              ),
               selectedIcon: Badge(
-                  isLabelVisible: n > 0,
-                  label: Text('$n'),
-                  child: const Icon(Icons.star_rounded)),
+                isLabelVisible: n > 0,
+                label: Text('$n'),
+                child: const Icon(Icons.star_rounded),
+              ),
               label: 'Watchlist',
             ),
           ],
