@@ -39,17 +39,15 @@ extension CoinFilterLabel on CoinFilter {
       };
 }
 
-/// Coin list state: search + filter + sort + pagination + auto refresh.
 class MarketController extends GetxController {
   static const _pageSize = 20;
 
   final ApiService _api = Get.find<ApiService>();
   Timer? _timer;
-  int _requestId = 0; // ignore out-of-order responses
+  int _requestId = 0;
   int _page = 1;
   String _lastQuery = '';
 
-  // ---- observable state (UI rebuilds through Obx)
   final status = LoadStatus.loading.obs;
   final error = RxnString();
   final coins = <Coin>[].obs;
@@ -67,7 +65,6 @@ class MarketController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // GetX worker: wait 400 ms after the user stops typing, then hit the API.
     debounce(query, (_) {
       if (query.value != _lastQuery) load();
     }, time: const Duration(milliseconds: 400));
@@ -123,12 +120,10 @@ class MarketController extends GetxController {
       coins.addAll(res.coins);
       hasMore.value = res.hasMore;
     } on ApiException {
-      // keep what we have; scrolling again retries
     }
     loadingMore.value = false;
   }
 
-  /// Pull-to-refresh: reloads the same number of rows the user already has.
   @override
   Future<void> refresh() async {
     try {
@@ -165,7 +160,6 @@ class MarketController extends GetxController {
     load();
   }
 
-  /// Tap the same column again -> flip direction. New column -> descending (name -> ascending).
   void setSort(SortKey key) {
     if (key == sortKey.value) {
       ascending.value = !ascending.value;

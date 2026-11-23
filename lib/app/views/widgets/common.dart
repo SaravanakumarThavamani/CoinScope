@@ -4,7 +4,6 @@ import 'package:crypto_research_app/app/data/models/coin.dart';
 import 'package:crypto_research_app/app/core/theme/app_theme.dart';
 import 'package:crypto_research_app/app/core/utils/formatters.dart';
 
-/// Coin logo. Falls back to a letter avatar when there is no image / offline.
 class CoinAvatar extends StatelessWidget {
   final Coin coin;
   final double size;
@@ -44,7 +43,6 @@ class CoinAvatar extends StatelessWidget {
   }
 }
 
-/// Green/red % change with arrow.
 class ChangeText extends StatelessWidget {
   final double? value;
   final double fontSize;
@@ -84,7 +82,6 @@ class ChangeText extends StatelessWidget {
   }
 }
 
-/// Small "LIVE" / "MOCK" pill so the interviewer can see which data source is active.
 class SourceBadge extends StatelessWidget {
   final String source;
   const SourceBadge(this.source, {super.key});
@@ -120,7 +117,6 @@ class SourceBadge extends StatelessWidget {
   }
 }
 
-/// Rounded dark card container (replaces CardTheme so it works on every Flutter version).
 class AppCard extends StatelessWidget {
   final Widget child;
   final EdgeInsetsGeometry padding;
@@ -149,7 +145,6 @@ class AppCard extends StatelessWidget {
   }
 }
 
-/// Label + value cell used on the coin detail screen.
 class StatCell extends StatelessWidget {
   final String label;
   final String value;

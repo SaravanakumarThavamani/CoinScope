@@ -4,7 +4,6 @@ import 'package:crypto_research_app/app/data/models/coin.dart';
 import 'package:crypto_research_app/app/data/services/api_service.dart';
 import 'package:crypto_research_app/app/controllers/market_controller.dart' show LoadStatus, SortKey;
 
-/// Watchlist is stored on the Flask backend (watchlist.json), so it survives restarts.
 class WatchlistController extends GetxController {
   final ApiService _api = Get.find<ApiService>();
 
@@ -13,7 +12,6 @@ class WatchlistController extends GetxController {
   final ids = <String>{}.obs;
   final coins = <Coin>[].obs;
 
-  // local sorting for the watchlist screen
   final sortKey = SortKey.marketCap.obs;
   final ascending = false.obs;
 
@@ -78,8 +76,6 @@ class WatchlistController extends GetxController {
     }
   }
 
-  /// Optimistic toggle: update UI instantly, roll back if the server call fails.
-  /// Returns an error message, or null on success.
   Future<String?> toggle(Coin coin) async {
     final wasWatched = ids.contains(coin.id);
     _apply(coin, add: !wasWatched);
@@ -91,7 +87,7 @@ class WatchlistController extends GetxController {
       }
       return null;
     } on ApiException catch (e) {
-      _apply(coin, add: wasWatched); // rollback
+      _apply(coin, add: wasWatched);
       return e.message;
     }
   }

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:crypto_research_app/app/core/theme/app_theme.dart';
 
-/// Tiny 7-day trend line for list rows (no touch, no axes).
 class Sparkline extends StatelessWidget {
   final List<double> data;
   final bool positive;

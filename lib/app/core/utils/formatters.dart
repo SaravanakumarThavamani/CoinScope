@@ -1,7 +1,7 @@
 import 'package:intl/intl.dart';
 
 class Fmt {
-  /// $1.23T / $4.5B / $12.3M / $9.8K
+
   static String compactUsd(double? v) {
     if (v == null) return '—';
     final abs = v.abs();
@@ -12,7 +12,6 @@ class Fmt {
     return '\$${v.toStringAsFixed(2)}';
   }
 
-  /// Price with sensible decimals: 59,028.00 / 1.07 / 0.0042 / 0.00000850
   static String price(double? v) {
     if (v == null) return '—';
     final abs = v.abs();
@@ -35,7 +34,6 @@ class Fmt {
     return '$sign${v.toStringAsFixed(digits)}%';
   }
 
-  /// Supply numbers, e.g. 19.80M BTC / 174.80B USDT. null = no cap -> ∞
   static String supply(double? v, String symbol) {
     if (v == null) return '∞';
     final abs = v.abs();

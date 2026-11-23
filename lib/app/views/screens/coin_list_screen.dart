@@ -8,7 +8,6 @@ import 'package:crypto_research_app/app/views/widgets/common.dart';
 import 'package:crypto_research_app/app/views/widgets/state_views.dart';
 import 'package:crypto_research_app/app/views/screens/coin_detail_screen.dart';
 
-/// Screen 1: coin list with search, filter chips, sorting, infinite scroll, pull-to-refresh.
 class CoinListScreen extends StatefulWidget {
   const CoinListScreen({super.key});
 
@@ -62,14 +61,13 @@ class _CoinListScreenState extends State<CoinListScreen> {
       ),
       body: Column(
         children: [
-          // ---- search (debounced inside the controller)
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
             child: TextField(
               controller: _search,
               onChanged: (v) {
                 m.setQuery(v);
-                setState(() {}); // toggles the clear button
+                setState(() {});
               },
               decoration: InputDecoration(
                 hintText: 'Search coins (e.g. bitcoin, eth)',
@@ -92,7 +90,6 @@ class _CoinListScreenState extends State<CoinListScreen> {
               ),
             ),
           ),
-          // ---- filter chips
           SizedBox(
             height: 40,
             child: Obx(() {
@@ -126,7 +123,6 @@ class _CoinListScreenState extends State<CoinListScreen> {
               );
             }),
           ),
-          // ---- sort chips
           SizedBox(
             height: 40,
             child: Obx(() {

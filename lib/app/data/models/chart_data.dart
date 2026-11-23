@@ -14,7 +14,6 @@ class ChartData {
   double get minPrice => points.map((p) => p.price).reduce((a, b) => a < b ? a : b);
   double get maxPrice => points.map((p) => p.price).reduce((a, b) => a > b ? a : b);
 
-  /// % change from first to last point of the selected range.
   double get changePercent {
     if (points.length < 2 || points.first.price == 0) return 0;
     return (points.last.price - points.first.price) / points.first.price * 100;

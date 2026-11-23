@@ -5,12 +5,9 @@ import 'package:crypto_research_app/app/data/models/chart_data.dart';
 import 'package:crypto_research_app/app/core/theme/app_theme.dart';
 import 'package:crypto_research_app/app/core/utils/formatters.dart';
 
-/// Interactive line chart.
-///  * Touch / drag -> crosshair + tooltip with price & date
-///  * [onSelect] reports the touched point (null when finger lifts) so the header can update.
 class PriceChart extends StatelessWidget {
   final ChartData data;
-  final bool rangeLong; // true => show only dates on tooltip (no time)
+  final bool rangeLong;
   final ValueChanged<ChartPoint?> onSelect;
   const PriceChart({
     super.key,

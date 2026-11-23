@@ -5,7 +5,6 @@ import 'package:crypto_research_app/app/core/theme/app_theme.dart';
 import 'package:crypto_research_app/app/data/services/storage_service.dart';
 import 'package:crypto_research_app/app/routes/app_routes.dart';
 
-/// A small floating label drawn around the page illustration.
 class OnboardingChip {
   final String label;
   final Color color;
@@ -93,7 +92,6 @@ class OnboardingController extends GetxController {
     }
   }
 
-  /// Used by both "Skip" and "Get Started": remember that the intro was seen, go home.
   Future<void> finish() async {
     await _storage.setOnboardingDone();
     Get.offAllNamed(AppRoutes.home);

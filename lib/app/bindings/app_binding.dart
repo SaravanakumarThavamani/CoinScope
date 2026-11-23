@@ -1,13 +1,12 @@
 import 'package:get/get.dart';
 
-import 'package:crypto_research_app/app/controllers/home_controller.dart';
-import 'package:crypto_research_app/app/controllers/market_controller.dart';
-import 'package:crypto_research_app/app/controllers/stats_controller.dart';
-import 'package:crypto_research_app/app/controllers/watchlist_controller.dart';
+import 'package:crypto_research_app/app/modules/home/home_controller.dart';
+import 'package:crypto_research_app/app/modules/market/market_controller.dart';
+import 'package:crypto_research_app/app/modules/stats/stats_controller.dart';
+import 'package:crypto_research_app/app/modules/watchlist/watchlist_controller.dart';
 import 'package:crypto_research_app/app/data/services/api_service.dart';
 import 'package:crypto_research_app/app/data/services/storage_service.dart';
 
-/// Dependency injection: everything is registered once here, then fetched with Get.find().
 class AppBinding extends Bindings {
   @override
   void dependencies() {

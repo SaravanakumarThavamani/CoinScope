@@ -68,7 +68,6 @@ class Coin {
         description: j['description'] as String?,
       );
 
-  /// Volume / market cap - a quick liquidity indicator.
   double? get volumeToMarketCap =>
       (volume != null && marketCap != null && marketCap! > 0) ? volume! / marketCap! : null;
 }

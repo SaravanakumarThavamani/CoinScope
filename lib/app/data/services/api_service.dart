@@ -9,7 +9,6 @@ import 'package:crypto_research_app/app/data/models/chart_data.dart';
 import 'package:crypto_research_app/app/data/models/coin.dart';
 import 'package:crypto_research_app/app/data/models/market_stats.dart';
 
-/// Every failure is converted to this so the UI only has to show `message`.
 class ApiException implements Exception {
   final String message;
   const ApiException(this.message);

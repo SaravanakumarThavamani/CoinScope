@@ -9,10 +9,8 @@ import 'package:crypto_research_app/app/core/utils/formatters.dart';
 import 'package:crypto_research_app/app/views/widgets/common.dart';
 import 'package:crypto_research_app/app/views/widgets/price_chart.dart';
 
-/// GetX navigation (no BuildContext needed).
 void openCoin(Coin coin) => Get.to(() => CoinDetailScreen(coin: coin));
 
-/// Screen 2: coin details - price header, interactive chart, statistics, supply, about.
 class CoinDetailScreen extends StatefulWidget {
   final Coin coin;
   const CoinDetailScreen({super.key, required this.coin});
@@ -28,7 +26,6 @@ class _CoinDetailScreenState extends State<CoinDetailScreen> {
   @override
   void initState() {
     super.initState();
-    // one controller per coin, identified by tag
     c = Get.put(CoinDetailController(widget.coin), tag: widget.coin.id);
   }
 
@@ -101,7 +98,6 @@ class _CoinDetailScreenState extends State<CoinDetailScreen> {
     );
   }
 
-  // ---------- header
   Widget _header() {
     final coin = c.coin.value;
     final sel = c.selected.value;
@@ -198,7 +194,6 @@ class _CoinDetailScreenState extends State<CoinDetailScreen> {
     );
   }
 
-  // ---------- chart
   Widget _chartArea() {
     if (c.chartLoading.value) {
       return const Center(child: CircularProgressIndicator(strokeWidth: 2));
@@ -241,7 +236,6 @@ class _CoinDetailScreenState extends State<CoinDetailScreen> {
     );
   }
 
-  // ---------- statistics
   Widget _statsCard() {
     final k = c.coin.value;
     final cells = <Widget>[
@@ -293,7 +287,6 @@ class _CoinDetailScreenState extends State<CoinDetailScreen> {
     );
   }
 
-  // ---------- supply
   Widget _supplyCard() {
     final k = c.coin.value;
     final cap = k.maxSupply ?? k.totalSupply;
@@ -363,7 +356,6 @@ class _CoinDetailScreenState extends State<CoinDetailScreen> {
     );
   }
 
-  // ---------- about
   Widget _aboutCard() {
     final k = c.coin.value;
     final expanded = c.expanded.value;

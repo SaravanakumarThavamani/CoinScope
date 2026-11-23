@@ -6,7 +6,6 @@ import 'package:crypto_research_app/app/core/utils/formatters.dart';
 import 'package:crypto_research_app/app/views/widgets/common.dart';
 import 'package:crypto_research_app/app/views/widgets/sparkline.dart';
 
-/// One row of the coin list / watchlist.
 class CoinTile extends StatelessWidget {
   final Coin coin;
   final VoidCallback onTap;

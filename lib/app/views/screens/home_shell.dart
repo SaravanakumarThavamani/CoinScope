@@ -7,7 +7,6 @@ import 'package:crypto_research_app/app/views/screens/coin_list_screen.dart';
 import 'package:crypto_research_app/app/views/screens/stats_screen.dart';
 import 'package:crypto_research_app/app/views/screens/watchlist_screen.dart';
 
-/// Bottom navigation: Markets | Stats | Watchlist
 class HomeShell extends StatelessWidget {
   const HomeShell({super.key});
 

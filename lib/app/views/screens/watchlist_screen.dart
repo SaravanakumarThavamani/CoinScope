@@ -10,7 +10,6 @@ import 'package:crypto_research_app/app/views/widgets/coin_tile.dart';
 import 'package:crypto_research_app/app/views/widgets/state_views.dart';
 import 'package:crypto_research_app/app/views/screens/coin_detail_screen.dart';
 
-/// Screen 4: watchlist (stored on the backend). Swipe left to remove, sort from the menu.
 class WatchlistScreen extends StatelessWidget {
   const WatchlistScreen({super.key});
 

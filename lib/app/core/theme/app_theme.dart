@@ -4,7 +4,7 @@ class AppColors {
   static const bg = Color(0xFF0B0F0E);
   static const card = Color(0xFF151B19);
   static const border = Color(0xFF232B28);
-  static const accent = Color(0xFF8CC63F); // CoinGecko lime
+  static const accent = Color(0xFF8CC63F);
   static const up = Color(0xFF3DDC84);
   static const down = Color(0xFFFF5252);
   static const muted = Color(0xFF8A9691);

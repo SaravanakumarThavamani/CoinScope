@@ -1,13 +1,12 @@
 import 'package:get/get.dart';
 
-import 'package:crypto_research_app/app/controllers/onboarding_controller.dart';
-import 'package:crypto_research_app/app/controllers/splash_controller.dart';
+import 'package:crypto_research_app/app/modules/onboarding/onboarding_controller.dart';
+import 'package:crypto_research_app/app/modules/splash/splash_controller.dart';
 import 'package:crypto_research_app/app/routes/app_routes.dart';
-import 'package:crypto_research_app/app/views/screens/home_shell.dart';
-import 'package:crypto_research_app/app/views/screens/onboarding_screen.dart';
-import 'package:crypto_research_app/app/views/screens/splash_screen.dart';
+import 'package:crypto_research_app/app/modules/home/home_shell.dart';
+import 'package:crypto_research_app/app/modules/onboarding/onboarding_screen.dart';
+import 'package:crypto_research_app/app/modules/splash/splash_screen.dart';
 
-/// Splash -> (first launch only) Onboarding -> Home
 class AppPages {
   static const initial = AppRoutes.splash;
 

@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:crypto_research_app/app/controllers/onboarding_controller.dart';
 import 'package:crypto_research_app/app/core/theme/app_theme.dart';
 
-/// Intro carousel shown once on first launch: Skip / Next / Get Started + page dots.
 class OnboardingScreen extends GetView<OnboardingController> {
   const OnboardingScreen({super.key});
 

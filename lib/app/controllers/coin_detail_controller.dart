@@ -4,7 +4,6 @@ import 'package:crypto_research_app/app/data/models/chart_data.dart';
 import 'package:crypto_research_app/app/data/models/coin.dart';
 import 'package:crypto_research_app/app/data/services/api_service.dart';
 
-/// One instance per opened coin (created with tag = coin id, deleted when the screen closes).
 class CoinDetailController extends GetxController {
   CoinDetailController(Coin initial) : coin = initial.obs;
 
@@ -13,13 +12,13 @@ class CoinDetailController extends GetxController {
   final ApiService _api = Get.find<ApiService>();
   int _chartReq = 0;
 
-  final Rx<Coin> coin; // list data shows instantly, then gets refreshed
+  final Rx<Coin> coin;
   final days = 7.obs;
   final chart = Rxn<ChartData>();
   final chartLoading = true.obs;
   final chartError = RxnString();
   final descError = RxnString();
-  final selected = Rxn<ChartPoint>(); // point under the finger
+  final selected = Rxn<ChartPoint>();
   final expanded = false.obs;
 
   String get rangeLabel => ranges.entries

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:crypto_research_app/app/core/theme/app_theme.dart';
 
-/// Pulsing skeleton rows shown while data is loading.
 class LoadingList extends StatefulWidget {
   final int rows;
   const LoadingList({super.key, this.rows = 8});

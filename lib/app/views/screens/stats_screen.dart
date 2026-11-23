@@ -13,7 +13,6 @@ import 'package:crypto_research_app/app/views/widgets/common.dart';
 import 'package:crypto_research_app/app/views/widgets/state_views.dart';
 import 'package:crypto_research_app/app/views/screens/coin_detail_screen.dart';
 
-/// Screen 3: global market statistics.
 class StatsScreen extends StatelessWidget {
   const StatsScreen({super.key});
 

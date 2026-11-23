@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:crypto_research_app/app/core/theme/app_theme.dart';
 
-/// Animated splash: logo pops in with a pulsing ring, then the wordmark slides up.
-/// Navigation is handled by SplashController (see app_pages.dart).
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
