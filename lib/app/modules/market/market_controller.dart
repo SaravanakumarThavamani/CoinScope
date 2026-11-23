@@ -120,6 +120,7 @@ class MarketController extends GetxController {
       _page++;
       coins.addAll(res.coins);
       hasMore.value = res.hasMore;
+    // ignore: empty_catches
     } on ApiException {
 
     }
